@@ -6,8 +6,8 @@ const session = require('express-session');
 const nunjucks = require('nunjucks');
 const dotenv = require('dotenv');
 const passport = require('passport');
-const helmet = require('helmet');
-const hpp = require('hpp');
+//const helmet = require('helmet');
+//const hpp = require('hpp');
 const redis = require('redis');
 const RedisStore = require('connect-redis')(session);
 
@@ -43,8 +43,8 @@ sequelize.sync({ force: false })
 //morgan 개발/운영에 따른 설정
 if( process.env.NODE_ENV === 'production') {
   app.use(morgan('combined')); // 'dev'에 비하여 더 많은 사용자 정보를 남기므로 추후 버그 해결에 더 유용함.
-  app.use(helmet());
-  app.use(hpp({contentSecurityPolicy: false}));
+  //app.use(helmet());
+  //app.use(hpp({contentSecurityPolicy: false}));
 } else {
   app.use(morgan('dev'));
 }
